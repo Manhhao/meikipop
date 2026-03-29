@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<component type="desktop-application">
+  <id>com.github.rtr46.meikipop</id>
+  <metadata_license>CC0-1.0</metadata_license>
+  <project_license>GPL-3.0</project_license>
+  <name>Meikipop</name>
+  <summary>Universal Japanese OCR popup dictionary</summary>
+  <description>
+    <p>
+      Meikipop is a universal Japanese OCR popup dictionary that provides instant
+      dictionary lookups for Japanese text anywhere on your screen. It uses optical
+      character recognition to read Japanese text from any visible content including
+      websites, games, manga, and videos.
+    </p>
+  </description>
+  <launchable type="desktop-id">com.github.rtr46.meikipop.desktop</launchable>
+  <url type="homepage">https://github.com/rtr46/meikipop</url>
+  <provides>
+    <binary>meikipop</binary>
+  </provides>
+  <content_rating type="oars-1.1" />
+</component>

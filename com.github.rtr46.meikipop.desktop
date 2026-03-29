@@ -1,0 +1,9 @@
+[Desktop Entry]
+Name=Meikipop
+Comment=Universal Japanese OCR popup dictionary
+Exec=meikipop
+Icon=com.github.rtr46.meikipop
+Terminal=false
+Type=Application
+Categories=Education;Languages;Utility;
+Keywords=Japanese;OCR;Dictionary;Popup;
