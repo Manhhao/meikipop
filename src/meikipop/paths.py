@@ -32,6 +32,7 @@ class MeikiPaths:
     
     @property
     def user_data_dir(self):
+        print(self._platform_dirs.user_data_dir)
         return self._platform_dirs.user_data_dir
     
     @property
@@ -41,8 +42,8 @@ class MeikiPaths:
     @property
     def config_dir(self):
         """Location of config.ini"""
-        if self.is_frozen:
-            return os.path.dirname(sys.executable)
+        # if self.is_frozen:
+        #     return os.path.dirname(sys.executable)
         return self.user_config_dir
     
     @property
@@ -53,8 +54,8 @@ class MeikiPaths:
     @property
     def dictionary_path(self):
         """Location of dictionary.pkl"""
-        if self.is_frozen:
-            return os.path.join(os.path.dirname(sys.executable), 'dictionary.pkl')
+        # if self.is_frozen:
+        #     return os.path.join(os.path.dirname(sys.executable), 'dictionary.pkl')
         return os.path.join(self.user_data_dir, 'dictionary.pkl')
     
     @property

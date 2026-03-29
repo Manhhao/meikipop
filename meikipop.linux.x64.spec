@@ -22,7 +22,7 @@ a = Analysis(
         ('src/meikipop/resources/icon.inactive.ico', 'meikipop/resources'),
         ('src/meikipop/scripts/deconjugator.json', 'meikipop/scripts'),
     ],
-    hiddenimports=['meikipop.ocr.providers.glensv2', 'meikipop.ocr.providers.owocr', 'meikipop.ocr.providers.meikiocr', 'meikipop.ocr.providers.screenai'],
+    hiddenimports=['meikipop.ocr.providers.glensv2', 'meikipop.ocr.providers.owocr', 'meikipop.ocr.providers.meikiocr', 'meikipop.ocr.providers.screenai', 'pynput.keyboard._xorg', 'pynput.mouse._xorg'],
     hookspath=[],
     hooksconfig={},
     runtime_hooks=[],

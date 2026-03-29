@@ -1,0 +1,49 @@
+id: com.github.rtr46.meikipop
+runtime: org.kde.Platform
+runtime-version: "6.10"
+sdk: org.kde.Sdk
+base: com.riverbankcomputing.PyQt.BaseApp
+base-version: "6.10"
+command: "meikipop"
+finish-args:
+  - "--socket=x11"
+  - "--socket=wayland"
+  - "--device=dri"
+  - "--share=ipc"
+  - "--share=network"
+  - "--filesystem=xdg-config/meikipop:rw"
+  - "--filesystem=xdg-data/meikipop:rw"
+  - "--filesystem=xdg-cache:rw"
+modules:
+  - name: pycairo
+    buildsystem: simple
+    build-commands:
+      - pip3 install meson-python --no-build-isolation --prefix=/app
+      - pip3 install pycairo --no-build-isolation --prefix=/app
+    build-options:
+      build-args:
+        - --share=network
+  - name: pygobject
+    buildsystem: meson
+    sources:
+      - type: archive
+        url: https://download.gnome.org/sources/pygobject/3.56/pygobject-3.56.1.tar.gz
+        sha256: 2ec1cc8c55c7ffeebb97e58a9bba7aa1e74611f1173628084685446804a8881a
+  - name: pyinstaller
+    buildsystem: simple
+    build-commands:
+      - pip3 install pyinstaller --no-build-isolation --prefix=/app
+    build-options:
+      build-args:
+        - --share=network
+  - name: meikipop
+    buildsystem: simple
+    build-commands:
+      - pip3 install --no-build-isolation --prefix=/app .
+      - pyinstaller meikipop.linux.x64.spec -y --distpath /app/bin
+    sources:
+      - type: dir
+        path: .
+    build-options:
+      build-args:
+        - --share=network
