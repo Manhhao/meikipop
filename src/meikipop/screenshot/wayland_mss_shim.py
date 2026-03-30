@@ -1,6 +1,5 @@
 # Modified from AuroraWright's OwOCR
 
-import os
 import re
 import threading
 import queue
@@ -17,11 +16,12 @@ from mss.exception import ScreenShotError
 from mss.screenshot import ScreenShot, Size
 from mss.models import Monitor
 
+from meikipop.paths import paths
+
 screencast = None
 screencast_lock = threading.Lock()
 
-_cache_dir = Path(os.environ.get('XDG_CACHE_HOME', Path('~/.cache').expanduser()))
-token_file = _cache_dir / '.ocr_screencapture_token'
+token_file = Path(paths.cache_dir) / '.ocr_screencapture_token'
 persist_token = str(uuid.UUID(int=0))
 
 if token_file.exists():
