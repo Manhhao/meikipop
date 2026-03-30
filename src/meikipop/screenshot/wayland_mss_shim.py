@@ -1,5 +1,6 @@
 # Modified from AuroraWright's OwOCR
 
+import os
 import re
 import threading
 import queue
@@ -19,7 +20,8 @@ from mss.models import Monitor
 screencast = None
 screencast_lock = threading.Lock()
 
-token_file = Path('~/.cache/.ocr_screencapture_token').expanduser()
+_cache_dir = Path(os.environ.get('XDG_CACHE_HOME', Path('~/.cache').expanduser()))
+token_file = _cache_dir / '.ocr_screencapture_token'
 persist_token = str(uuid.UUID(int=0))
 
 if token_file.exists():
